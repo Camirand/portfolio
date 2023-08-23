@@ -15,9 +15,11 @@ const Navbar = () => {
     <nav className="bg-primary px-4 flex flex-wrap justify-between items-center relative">
       {" "}
       <Link href="/">
-        <div className="flex items-center">
-          <Image src={logo} alt="Logo" width={76} height={76} />
-          <span className="text-secondary font-bold">Marc-André Camirand</span>
+        <div className="flex items-center py-2">
+          <Image src={logo} alt="Logo" width={36} height={36} />
+          <span className="text-secondary font-bold pl-6">
+            Marc-André Camirand
+          </span>
         </div>
       </Link>
       {/* mobile browsers */}
