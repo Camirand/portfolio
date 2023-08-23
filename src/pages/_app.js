@@ -1,10 +1,14 @@
 import RootLayout from "../layouts/RootLayout";
+import Navbar from "@/components/Navbar";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <RootLayout>
-      <Component {...pageProps} />
-    </RootLayout>
+    <>
+      <Navbar />
+      <RootLayout>
+        <Component {...pageProps} />
+      </RootLayout>
+    </>
   );
 }
 
