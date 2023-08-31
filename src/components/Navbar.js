@@ -3,6 +3,7 @@ import { FaGithub, FaBars, FaTimes, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../assets/logo.png";
+import { Button } from "./Button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,7 @@ const Navbar = () => {
         <Link href="/">
           <ul
             onClick={closeMenu}
-            className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue mb-4"
+            className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue  duration-300 mb-4"
           >
             Accueil
           </ul>
@@ -45,7 +46,7 @@ const Navbar = () => {
         <Link href="/realisations">
           <ul
             onClick={closeMenu}
-            className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue mb-4"
+            className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue duration-300 mb-4"
           >
             Réalisations
           </ul>
@@ -81,18 +82,18 @@ const Navbar = () => {
       {/*  desktop browsers */}
       <div className={`hidden lg:flex flex-row items-center space-x-6`}>
         <Link href="/">
-          <ul className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue">
+          <ul className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue duration-300">
             Accueil
           </ul>
         </Link>
         <Link href="/realisations">
-          <ul className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue">
+          <ul className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue duration-300">
             Réalisations
           </ul>
         </Link>
         <a href="https://github.com/Camirand" target="_blank" rel="noreferrer">
           <FaGithub
-            className="text-secondary hover:text-blue cursor-pointer"
+            className="text-secondary hover:text-blue durantion-300 cursor-pointer"
             size={24}
           />
         </a>
@@ -102,15 +103,11 @@ const Navbar = () => {
           rel="noreferrer"
         >
           <FaLinkedin
-            className="text-secondary hover:text-blue cursor-pointer"
+            className="text-secondary hover:text-blue durantion-300 cursor-pointer"
             size={24}
           />
         </a>
-        <Link href="/contact">
-          <button className="bg-gradient-to-r from-blue to-lightblue text-white font-bold px-4 py-2 rounded-full hover:to-hoverblue transition-all">
-            Embauchez-moi
-          </button>
-        </Link>
+        <Button link="/contact" text="Embauchez-moi" />
       </div>
     </nav>
   );

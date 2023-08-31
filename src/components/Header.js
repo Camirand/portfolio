@@ -1,9 +1,13 @@
+import Link from "next/link";
 import Image from "next/image";
 import avatar from "../assets/avatar.png";
+import AnimatedText from "./AnimatedText";
+import { Button } from "./Button";
 import {
   FaShip,
   FaUserTie,
   FaBicycle,
+  FaExternalLinkAlt,
   FaLaptopCode,
   FaWordpress,
 } from "react-icons/fa";
@@ -12,9 +16,10 @@ const Header = () => {
   return (
     <div className="bg-primary px-6 flex flex-col md:flex-row">
       <div className="flex flex-col items-center justify-center w-full md:w-1/3">
-        <h1 className="text-3xl text-secondary font-bold pt-10 ">
-          {"<Développeur web>"}
-        </h1>
+        <AnimatedText
+          text={"<Développeur web>"}
+          classname="text-3xl text-secondary font-bold"
+        />
         <div className="text-gray-500 mt-6 text-center">
           <div className="flex items-center mt-2">
             <FaLaptopCode className="text-blue mr-2" />
@@ -36,6 +41,18 @@ const Header = () => {
           <div className="flex items-center mt-2">
             <FaBicycle className="text-blue mr-2" />
             Passionné de vélo de montagne.
+          </div>
+          <div className="py-4">
+            <Button
+              link={"/CV.pdf"}
+              text={
+                <>
+                  Curriculum Vitae
+                  <FaExternalLinkAlt className="ml-2 text-white inline-block" />
+                </>
+              }
+              target={"_blank"}
+            />
           </div>
         </div>
       </div>
