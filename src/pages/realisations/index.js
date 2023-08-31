@@ -67,7 +67,7 @@ const ProjectsSection = () => {
       <TransitionEffects />
 
       <div className=" bg-primary py-20 flex flex-col items-center justify-center">
-        <h2 className="text-6xl font-bold text-secondary mb-20 text-center">
+        <h2 className="text-5xl font-bold text-secondary mb-20 text-center">
           Réalisations
         </h2>
         <main className="p-4 bg-primary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">

@@ -1,5 +1,4 @@
 import React from "react";
-import { motion as m } from "framer-motion";
 
 const Details = ({ position, company, companyLink, time, adress, work }) => {
   return (
@@ -33,7 +32,7 @@ const Details = ({ position, company, companyLink, time, adress, work }) => {
 const Experience = () => {
   return (
     <div className=" bg-primary py-20 flex flex-col items-center justify-center">
-      <h2 className="text-6xl font-bold text-secondary mb-32 text-center">
+      <h2 className="text-5xl font-bold text-secondary mb-32 text-center">
         Expériences
       </h2>
       <div className="w-[75%] mx-auto relative">
