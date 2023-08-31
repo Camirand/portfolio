@@ -1,5 +1,6 @@
 import RootLayout from "../layouts/RootLayout";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -8,6 +9,7 @@ function MyApp({ Component, pageProps }) {
       <RootLayout>
         <Component {...pageProps} />
       </RootLayout>
+      <Footer />
     </>
   );
 }
