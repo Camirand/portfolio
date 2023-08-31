@@ -1,14 +1,12 @@
-import Header from "@/components/Header";
+import Experience from "@/components/Experience";
 import Head from "next/head";
 import TransitionEffects from "@/components/TransitionEffects";
-import TechnologiesSection from "@/components/Technologies";
-import ExperiencePage from "./experiences";
 
-const Home = () => {
+const ExperiencePage = () => {
   return (
     <div>
       <Head>
-        <title>Portfolio de Marc-André Camirand</title>
+        <title>Expériences de Marc-André Camirand</title>
         <meta
           name="description"
           content="Portfolio de Marc-André Camirand, développeur fullstack"
@@ -16,12 +14,12 @@ const Home = () => {
         <link rel="icon" href="/logo.png" />
       </Head>
       <TransitionEffects />
-      <main>
-        <Header />
-        <TechnologiesSection />
+
+      <main className="p-4 bg-primary">
+        <Experience />
       </main>
     </div>
   );
 };
 
-export default Home;
+export default ExperiencePage;

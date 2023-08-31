@@ -51,6 +51,14 @@ const Navbar = () => {
             Réalisations
           </ul>
         </Link>
+        <Link href="/experiences">
+          <ul
+            onClick={closeMenu}
+            className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue duration-300 mb-4"
+          >
+            Expériences
+          </ul>
+        </Link>
         <div className="flex justify-center mb-4">
           <a
             href="https://github.com/Camirand"
@@ -89,6 +97,11 @@ const Navbar = () => {
         <Link href="/realisations">
           <ul className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue duration-300">
             Réalisations
+          </ul>
+        </Link>
+        <Link href="/experiences">
+          <ul className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue duration-300">
+            Expériences
           </ul>
         </Link>
         <a href="https://github.com/Camirand" target="_blank" rel="noreferrer">
