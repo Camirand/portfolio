@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Head from "next/head";
-
-import ProjectsSection from "@/components/ProjectsSection";
+import TransitionEffects from "@/components/TransitionEffects";
 import TechnologiesSection from "@/components/Technologies";
 
 const Home = () => {
@@ -15,10 +14,10 @@ const Home = () => {
         />
         <link rel="icon" href="/logo.png" />
       </Head>
+      <TransitionEffects />
       <main>
         <Header />
         <TechnologiesSection />
-        <ProjectsSection />
       </main>
     </div>
   );

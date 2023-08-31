@@ -42,7 +42,7 @@ const Navbar = () => {
             Accueil
           </ul>
         </Link>
-        <Link href="#projects-section">
+        <Link href="/realisations">
           <ul
             onClick={closeMenu}
             className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue mb-4"
@@ -72,11 +72,11 @@ const Navbar = () => {
             />
           </a>
         </div>
-        <a href="/contact">
+        <Link href="/contact">
           <button className="bg-gradient-to-r from-blue to-lightblue text-white font-bold px-4 py-2 rounded-full hover:to-hoverblue transition-all">
             Embauchez-moi
           </button>
-        </a>
+        </Link>
       </div>
       {/*  desktop browsers */}
       <div className={`hidden lg:flex flex-row items-center space-x-6`}>
@@ -85,7 +85,7 @@ const Navbar = () => {
             Accueil
           </ul>
         </Link>
-        <Link href="#projects-section">
+        <Link href="/realisations">
           <ul className="text-secondary font-bold pb-1 border-b-2 border-transparent hover:text-blue hover:border-blue">
             Réalisations
           </ul>
@@ -106,11 +106,11 @@ const Navbar = () => {
             size={24}
           />
         </a>
-        <a href="/contact">
+        <Link href="/contact">
           <button className="bg-gradient-to-r from-blue to-lightblue text-white font-bold px-4 py-2 rounded-full hover:to-hoverblue transition-all">
             Embauchez-moi
           </button>
-        </a>
+        </Link>
       </div>
     </nav>
   );

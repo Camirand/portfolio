@@ -1,4 +1,6 @@
 import React from "react";
+import Head from "next/head";
+import TransitionEffects from "@/components/TransitionEffects";
 import {
   FaHtml5,
   FaCss3,
@@ -16,8 +18,8 @@ import {
 import { BiLogoMongodb, BiLogoTailwindCss } from "react-icons/bi";
 import { TbBrandNextjs, TbBrandVite } from "react-icons/tb";
 import { SiPostman, SiExpress, SiRubyonrails, SiMysql } from "react-icons/si";
-import ProjectCard from "./ProjectCard";
-import avatar from "../assets/avatar.png";
+import ProjectCard from "../../components/ProjectCard";
+import avatar from "../../assets/avatar.png";
 
 const ProjectsSection = () => {
   const projects = [
@@ -53,13 +55,22 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <div
-      id="projects-section"
-      className="p-4 bg-primary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
-    >
-      {projects.map((project, index) => (
-        <ProjectCard key={index} {...project} />
-      ))}
+    <div>
+      <Head>
+        <title>Réalisations de Marc-André Camirand</title>
+        <meta
+          name="description"
+          content="Portfolio de Marc-André Camirand, développeur fullstack"
+        />
+        <link rel="icon" href="/logo.png" />
+      </Head>
+      <TransitionEffects />
+
+      <main className="p-4 bg-primary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </main>
     </div>
   );
 };
