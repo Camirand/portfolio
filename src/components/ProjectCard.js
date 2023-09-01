@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const ProjectCard = ({
   title,
@@ -8,16 +9,11 @@ const ProjectCard = ({
   projectLink,
 }) => {
   return (
-    <div className="bg-primary shadow-md rounded-xl flex flex-col px-10 mt-20">
-      <div className="w-full h-56 relative">
-        <Image
-          src={imageUrl}
-          alt={title}
-          layout="fill"
-          objectFit="contain"
-          className="rounded-t-lg"
-        />
+    <div className="bg-primary shadow-md rounded-xl flex flex-col  mt-20">
+      <div className="w-full h-56 relative rounded-t-lg overflow-hidden">
+        <Image src={imageUrl} alt={title} layout="fill" objectFit="contain" />
       </div>
+
       <div className="flex flex-col flex-grow p-4">
         <h2 className="text-secondary text-2xl font-bold mt-2">{title}</h2>
         <p className="text-gray-600 mt-2 flex-grow">{description}</p>

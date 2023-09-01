@@ -16,10 +16,16 @@ import {
   FaSlack,
 } from "react-icons/fa";
 import { BiLogoMongodb, BiLogoTailwindCss } from "react-icons/bi";
-import { TbBrandNextjs, TbBrandVite } from "react-icons/tb";
+import {
+  TbBrandGithub,
+  TbBrandNextjs,
+  TbBrandVercel,
+  TbBrandVite,
+} from "react-icons/tb";
 import { SiPostman, SiExpress, SiRubyonrails, SiMysql } from "react-icons/si";
 import ProjectCard from "../../components/ProjectCard";
 import avatar from "../../assets/avatar.png";
+import portfolio from "../../assets/portfolio.png";
 import Cta from "@/components/Cta";
 
 const ProjectsSection = () => {
@@ -42,7 +48,7 @@ const ProjectsSection = () => {
     {
       title: "Baja Life",
       description:
-        "Redesign complet d'un site web wix. Baja Life offre des expériences de voyages personnalisés. La cliente désirait améliorer son UX/UI, intégrer un blog, intégrer un dashboard afin d'afficher ses tours et ses disponibilités ainsi qu'un système de paiement",
+        "Redesign complet d'un site web wix. Baja Life offre des expériences de voyages personnalisés. La cliente désirait améliorer son UX/UI, intégrer un blog, intégrer un dashboard afin d'afficher ses tours et ses disponibilités ainsi qu'un système de paiement.",
       technologies: [
         <FaReact key="react" />,
         <TbBrandNextjs key="nextjs" />,
@@ -52,6 +58,19 @@ const ProjectsSection = () => {
       ],
       imageUrl: avatar,
       projectLink: "lien_vers_projet_baja_life",
+    },
+    {
+      title: "Portfolio",
+      description:
+        "Développement de mon portfolio à partir du tout nouveau NextJS 13! Merci à Midjourney pour cette magnifique image en header.",
+      technologies: [
+        <TbBrandNextjs key="nextjs" />,
+        <BiLogoTailwindCss key="tailwindcss" />,
+        <TbBrandVercel key="vercel" />,
+        <TbBrandGithub key="github" />,
+      ],
+      imageUrl: portfolio,
+      projectLink: "https://www.marcandrecamirand.com/",
     },
   ];
 
@@ -86,7 +105,7 @@ const ProjectsSection = () => {
         <h2 className="text-5xl font-bold text-secondary mb-20 text-center">
           Réalisations
         </h2>
-        <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
