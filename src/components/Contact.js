@@ -109,7 +109,7 @@ const Contact = () => {
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           onChange={handleRecaptchaChange}
         />
-
+        <p className="mt-4 text-#FF0000">{status}</p>
         <button
           type="submit"
           className="bg-gradient-to-r from-blue to-lightblue text-white font-bold px-4 py-2 rounded-3xl hover:to-hoverblue transition-all mt-4"
@@ -117,7 +117,6 @@ const Contact = () => {
           Envoyer
         </button>
       </form>
-      <p className="mt-4 text-gray-500">{status}</p>
     </div>
   );
 };
