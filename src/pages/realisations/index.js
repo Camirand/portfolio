@@ -20,6 +20,7 @@ import { TbBrandNextjs, TbBrandVite } from "react-icons/tb";
 import { SiPostman, SiExpress, SiRubyonrails, SiMysql } from "react-icons/si";
 import ProjectCard from "../../components/ProjectCard";
 import avatar from "../../assets/avatar.png";
+import Cta from "@/components/Cta";
 
 const ProjectsSection = () => {
   const projects = [
@@ -60,22 +61,38 @@ const ProjectsSection = () => {
         <title>Réalisations de Marc-André Camirand</title>
         <meta
           name="description"
-          content="Portfolio de Marc-André Camirand, développeur fullstack"
+          content="Découvrez les projets réalisés par Marc-André Camirand, développeur FullStack."
         />
+        <meta
+          name="keywords"
+          content="Marc-André Camirand, Développeur FullStack Québec, Projets, Réalisations"
+        />
+        <meta name="author" content="Marc-André Camirand" />
+        <meta
+          property="og:title"
+          content="Réalisations de Marc-André Camirand"
+        />
+        <meta
+          property="og:description"
+          content="Découvrez les projets réalisés par Marc-André Camirand, développeur FullStack."
+        />
+        <meta property="og:image" content="/logo.png" />
         <link rel="icon" href="/logo.png" />
       </Head>
+
       <TransitionEffects />
 
-      <div className=" bg-primary py-20 flex flex-col items-center justify-center">
+      <main className="bg-primary py-32 flex flex-col items-center justify-center">
         <h2 className="text-5xl font-bold text-secondary mb-20 text-center">
           Réalisations
         </h2>
-        <main className="container px-4 bg-primary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
-        </main>
-      </div>
+        </div>
+      </main>
+      <Cta />
     </div>
   );
 };

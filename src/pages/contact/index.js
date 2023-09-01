@@ -1,93 +1,39 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useState } from "react";
+import Contact from "@/components/Contact";
+import Head from "next/head";
+import TransitionEffects from "@/components/TransitionEffects";
+import Cta from "@/components/Cta";
 
-const Contact = () => {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const response = await fetch("/api/sendEmail", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formState),
-    });
-
-    const data = await response.text();
-
-    setStatus(data);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormState((prevState) => ({ ...prevState, [name]: value }));
-  };
-
+const ContactPage = () => {
   return (
-    <div className="container min-h-screen bg-primary flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl mb-4 text-secondary font-bold">Contactez-moi</h1>
-      <div className="flex space-x-4 mb-6">
-        <a href="https://github.com/Camirand" target="_blank" rel="noreferrer">
-          <FaGithub
-            className="text-secondary hover:text-blue cursor-pointer"
-            size={24}
+    <div>
+      <Head>
+        <Head>
+          <title>Contact de Marc-André Camirand</title>
+          <meta
+            name="description"
+            content="Contactez Marc-André Camirand, développeur FullStack."
           />
-        </a>
-        <a
-          href="https://ca.linkedin.com/in/marcandrecamirand"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FaLinkedin
-            className="text-secondary hover:text-blue cursor-pointer"
-            size={24}
+          <meta
+            name="keywords"
+            content="Marc-André Camirand, Développeur FullStack Québec, Contact"
           />
-        </a>
-      </div>
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-xl shadow-md w-full max-w-md text-center"
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Votre nom"
-          required
-          onChange={handleChange}
-          className="block w-full p-2 mb-4 text-gray-500 border border-blue-400 rounded-xl"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Votre courriel"
-          required
-          onChange={handleChange}
-          className="block w-full p-2 mb-4 text-gray-500 border border-blue-400 rounded-xl"
-        />
-        <textarea
-          name="message"
-          placeholder="Votre message"
-          required
-          onChange={handleChange}
-          className="block w-full p-2 mb-4 text-gray-500 border border-blue-400 rounded-xl h-32"
-        ></textarea>
-        <button
-          type="submit"
-          className="bg-gradient-to-r from-blue to-lightblue text-white font-bold px-4 py-2 rounded-3xl hover:to-hoverblue transition-all"
-        >
-          Envoyer
-        </button>
-      </form>
-      <p className="mt-4 text-gray-500">{status}</p>
+          <meta name="author" content="Marc-André Camirand" />
+          <meta property="og:title" content="Contact de Marc-André Camirand" />
+          <meta
+            property="og:description"
+            content="Contactez Marc-André Camirand, développeur FullStack."
+          />
+          <meta property="og:image" content="/logo.png" />
+          <link rel="icon" href="/logo.png" />
+        </Head>
+      </Head>
+      <TransitionEffects />
+
+      <main className="bg-primary py-4">
+        <Contact />
+      </main>
     </div>
   );
 };
 
-export default Contact;
+export default ContactPage;

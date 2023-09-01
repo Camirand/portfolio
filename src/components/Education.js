@@ -1,134 +1,104 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useRef } from "react";
+import { motion as m, useScroll } from "framer-motion";
+import Liicon from "./Liicon";
 
-const EducationDetail = React.forwardRef(
-  ({ school, degree, time, adress, description, isActive }, ref) => {
-    return (
-      <li
-        ref={ref}
-        className="py-12 first:mt-0 last:mb-0 w-full flex items-start"
-      >
-        <div className="relative mr-4">
-          <div className="w-[4px] h-full bg-blue"></div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isActive ? 1 : 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute top-10 left-[-70px] text-blue font-bold transform -rotate-90"
-          >
-            {time.split("-")[0]}
-          </motion.div>
-        </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isActive ? 1 : 0 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="flex flex-col"
-        >
-          <h3 className="capitalize font-bold text-2xl text-secondary">
-            {degree}&nbsp;
-            <span className="text-blue">@{school}</span>
-          </h3>
-          <span className="capitalize font-medium text-secondary/75">
-            {time} | {adress}
-          </span>
-          <p className="font-medium w-full text-secondary">{description}</p>
-        </motion.div>
-      </li>
-    );
-  }
-);
-
-const Education = () => {
-  const eduControls = useAnimation();
-  const [scrollY, setScrollY] = useState(0);
-  const [activeEduDetail, setActiveEduDetail] = useState(0);
-  const eduSectionRef = useRef(null);
-
-  const detailsRefs = useRef([
-    React.createRef(),
-    React.createRef(),
-    React.createRef(),
-    React.createRef(),
-  ]);
-
-  const handleScroll = () => {
-    setScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const eduTop = eduSectionRef.current ? eduSectionRef.current.offsetTop : 0;
-    const updateActiveEduDetail = () => {
-      const positions = detailsRefs.current.map((ref) =>
-        ref.current ? ref.current.offsetTop - 50 : 0
-      );
-      let newActive = null;
-      for (let i = 0; i < positions.length; i++) {
-        if (scrollY >= positions[i]) {
-          newActive = i;
-        }
-      }
-      setActiveEduDetail(newActive);
-      eduControls.start({
-        height: `${((newActive + 1) / positions.length) * 100}%`,
-      });
-    };
-
-    if (scrollY >= eduTop) {
-      updateActiveEduDetail();
-    }
-  }, [scrollY, eduControls]);
+const Details = ({ type, time, place, adress, info }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["center end", "center center"],
+    layoutEffect: false,
+  });
 
   return (
-    <div
-      ref={eduSectionRef}
-      className="py-32 flex flex-col items-center justify-center"
+    <li
+      ref={ref}
+      className="mb-8 first:mt-0 last:mb-0 w-[90%] mx-auto flex flex-col items-left justify-between"
     >
-      <h2 className="text-5xl font-bold text-secondary mb-32 text-center">
+      <Liicon reference={ref} progress={scrollYProgress} />
+      <m.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+      >
+        <h3 className="capitalize text-2xl font-bold text-secondary">
+          {type}
+          {"\u00A0"}@ {"\u00A0"}
+          <span className="text-blue"> {place}</span>
+        </h3>
+        <span className="capitalize font-medium text-secondary/75">
+          {time} | {adress}
+        </span>
+        <p className="font-medium w-full">{info}</p>
+      </m.div>
+    </li>
+  );
+};
+
+const Education = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center start"],
+    layoutEffect: false,
+  });
+  const educations = [
+    {
+      type: "Bootcamp Développeur FullStack",
+      place: "Le Wagon",
+      time: "2022",
+      adress: "Montréal",
+      info: "lorem",
+    },
+    {
+      type: "Titre planificateur financier",
+      place: "Institut québécois de planification financière (IQPF)",
+      time: "2013",
+      adress: "Province de Québec",
+      info: "lorem",
+    },
+    {
+      type: "Certificat représentant en épargne collective",
+      place: "Canadian Securities Institute (CSI)",
+      time: "2012",
+      adress: "Province de Québec",
+      info: "lorem",
+    },
+    {
+      type: "Certificat conseiller en sécurité financière",
+      place: "Autorité des marchés financiers (AMF)",
+      time: "2012",
+      adress: "Province de Québec",
+      info: "lorem",
+    },
+    {
+      type: "Bacc. en administration des affaires - services financiers",
+      place: "Université Laval",
+      time: "2010-2012",
+      adress: "Ville de Québec",
+      info: "lorem",
+    },
+  ];
+
+  return (
+    <div className=" bg-primary my-32">
+      <h2
+        ref={ref}
+        className="w-full text-5xl font-bold text-secondary mb-20 text-center"
+      >
         Éducation
       </h2>
-      <div className="w-[75%] mx-auto relative">
-        <motion.div
-          className="absolute left-0 top-0 w-[4px] bg-blue"
-          initial={{ height: "0%" }}
-          animate={eduControls}
-          transition={{ duration: 0.8 }}
-        ></motion.div>
-        <ul className="px-4 flex flex-col items-start pl-8">
-          <EducationDetail
-            ref={detailsRefs.current[0]}
-            school="Le Wagon"
-            degree="Bootcamp développement web FullStack"
-            time="2022"
-            adress="Montréal"
-            description="Programme intensif de 9 semaines pour apprendre à coder, concevoir et déployer des applications web."
-            isActive={activeEduDetail >= 0}
-          />
-          <EducationDetail
-            ref={detailsRefs.current[1]}
-            school="IQPF"
-            degree="Titre planificateur financier"
-            time="2013"
-            adress="Ville de Québec"
-            description="Le titre de planificateur financier est le plus haut niveau de compétence en planification financière au Québec."
-            isActive={activeEduDetail >= 1}
-          />
-          <EducationDetail
-            ref={detailsRefs.current[2]}
-            school="Université Laval"
-            degree="Baccalauréat en administration des affaires, majeur en services financiers"
-            time="2010-2013"
-            adress="Ville de Québec"
-            description="Le baccalauréat en administration des affaires (B.A.A.) est un programme de premier cycle de 90 crédits."
-            isActive={activeEduDetail >= 2}
-          />
+
+      <div className="w-[90%] mx-auto relative">
+        {/* ligne vertitale */}
+        <m.div
+          style={{ scaleY: scrollYProgress, originY: 0 }}
+          className="absolute left-0 top-1 w-[4px] h-full bg-blue"
+        />
+        <ul className="w-full flex flex-col items-start justify-between ml-4">
+          {educations.map((exp, index) => (
+            <Details key={index} {...exp} />
+          ))}
         </ul>
       </div>
     </div>
@@ -136,4 +106,3 @@ const Education = () => {
 };
 
 export default Education;
-EducationDetail.displayName = "Education";

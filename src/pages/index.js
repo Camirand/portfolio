@@ -10,10 +10,22 @@ const Home = () => {
         <title>Portfolio de Marc-André Camirand</title>
         <meta
           name="description"
-          content="Portfolio de Marc-André Camirand, développeur fullstack"
+          content="Bienvenue sur le portfolio de Marc-André Camirand, développeur FullStack."
         />
+        <meta
+          name="keywords"
+          content="Marc-André Camirand, Développeur Fullstack Québec, Portfolio, Accueil"
+        />
+        <meta name="author" content="Marc-André Camirand" />
+        <meta property="og:title" content="Portfolio de Marc-André Camirand" />
+        <meta
+          property="og:description"
+          content="Bienvenue sur le portfolio de Marc-André Camirand, développeur FullStack."
+        />
+        <meta property="og:image" content="/logo.png" />
         <link rel="icon" href="/logo.png" />
       </Head>
+
       <TransitionEffects />
       <main>
         <Header />
