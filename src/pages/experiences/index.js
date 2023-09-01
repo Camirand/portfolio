@@ -1,4 +1,5 @@
 import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 import Head from "next/head";
 import TransitionEffects from "@/components/TransitionEffects";
 
@@ -17,6 +18,7 @@ const ExperiencePage = () => {
 
       <main className="p-4 bg-primary">
         <Experience />
+        <Education />
       </main>
     </div>
   );

@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Head from "next/head";
 import TransitionEffects from "@/components/TransitionEffects";
 import TechnologiesSection from "@/components/Technologies";
-import ExperiencePage from "./experiences";
 
 const Home = () => {
   return (
