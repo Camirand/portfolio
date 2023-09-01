@@ -94,9 +94,9 @@ const Experience = () => {
   }, [scrollY, controls]);
 
   return (
-    <div className="bg-primary py-32 flex flex-col items-center justify-center">
-      <h2 className="text-5xl font-bold text-secondary mb-32 text-center">
-        Expériences
+    <div className=" bg-primary py-20 flex flex-col items-center justify-center">
+      <h2 className="text-5xl font-bold text-secondary mb-20 text-center">
+        Réalisations
       </h2>
       <div className="w-[75%] mx-auto relative">
         <motion.div
