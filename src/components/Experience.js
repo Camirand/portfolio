@@ -251,7 +251,7 @@ const Experience = () => {
         <m.div
           id="experience-line"
           style={{ scaleY: scrollYProgress, originY: 0 }}
-          className="absolute left-0 top-1 w-[4px] h-full bg-blue"
+          className="absolute left-0 top-1 w-[4px] h-full custom-gradient"
           ref={ref}
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4 ">

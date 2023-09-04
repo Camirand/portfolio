@@ -35,8 +35,8 @@ const ExperiencePage = () => {
       <main className="bg-primary py-4">
         <Experience />
         <Education />
+        <Cta />
       </main>
-      <Cta />
     </div>
   );
 };

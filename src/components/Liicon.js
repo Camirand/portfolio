@@ -8,7 +8,7 @@ const Liicon = ({ reference, educationRef, progress }) => {
   });
 
   return (
-    <figure className="absolute left-[-35px] stroke-secondary">
+    <figure className="absolute left-[-35px] stroke-blue">
       <svg className="-rotate-90" width="75" height="75" viewBox="0 0 100 100">
         <circle
           cx="75"
