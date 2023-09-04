@@ -45,18 +45,41 @@ const NavLink = ({ href, text }) => {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   const closeMenu = () => setIsOpen(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPosition = window.scrollY;
+
+      if (window.innerWidth > 768) {
+        setVisible(
+          currentScrollPosition < 100 || currentScrollPosition <= scrollPosition
+        );
+      }
+
+      setScrollPosition(currentScrollPosition);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollPosition]);
+
   return (
     <motion.nav
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="bg-primary px-4 flex flex-wrap justify-between items-center relative"
+      initial={{ translateY: 0 }}
+      animate={{ translateY: visible ? 0 : "-100%" }}
+      transition={{ ease: "easeInOut", duration: 0.5 }}
+      className="bg-primary px-4 flex flex-wrap justify-between items-center fixed w-full top-0 z-50"
     >
       <Link href="/">
         <div className="flex items-center py-2">
-          <Image src={logo} alt="Logo" width={36} height={36} />
+          <Image src={logo} alt="Logo" width={36} height={36} priority={true} />
           <span className="text-secondary font-bold pl-6">
             Marc-André Camirand
           </span>
