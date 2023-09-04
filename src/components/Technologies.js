@@ -48,7 +48,7 @@ const TechnologiesSection = () => {
     <div className="bg-gradient-to-r from-blue to-lightblue p-6 flex flex-wrap justify-around items-center">
       {technologies.map((tech, index) => (
         <a
-          key={index}
+          key={tech.link}
           href={tech.link}
           target="_blank"
           rel="noreferrer"

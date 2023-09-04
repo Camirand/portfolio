@@ -96,8 +96,8 @@ const Education = () => {
           className="absolute left-0 top-1 w-[4px] h-full bg-blue"
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4">
-          {educations.map((exp, index) => (
-            <Details key={index} {...exp} />
+          {educations.map((exp) => (
+            <Details key={exp.type} {...exp} />
           ))}
         </ul>
       </div>

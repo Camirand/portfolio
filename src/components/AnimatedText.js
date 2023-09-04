@@ -33,7 +33,11 @@ const AnimatedText = ({ text, classname = "" }) => {
         animate="animate"
       >
         {text.split(" ").map((word, index) => (
-          <m.span key={index} className="inline-block" variants={childVariants}>
+          <m.span
+            key={`${word}-${index}`}
+            className="inline-block"
+            variants={childVariants}
+          >
             {word}&nbsp;
           </m.span>
         ))}

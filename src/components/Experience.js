@@ -267,8 +267,8 @@ const Experience = () => {
           className="absolute left-0 top-1 w-[4px] h-full bg-blue"
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4 ">
-          {experiences.map((exp, index) => (
-            <Details key={index} {...exp} />
+          {experiences.map((exp) => (
+            <Details key={exp.position + exp.company} {...exp} />
           ))}
         </ul>
       </div>
