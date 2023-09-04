@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { FaTimes } from "react-icons/fa";
 
 const ProjectCard = ({
   title,
@@ -8,9 +9,21 @@ const ProjectCard = ({
   imageUrl,
   projectLink,
 }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
-    <div className="bg-primary shadow-md rounded-xl flex flex-col  mt-20">
-      <div className="w-full h-56 relative rounded-t-lg overflow-hidden">
+    <div className="bg-primary shadow-md rounded-xl flex flex-col mt-20">
+      <div
+        className="w-full h-56 relative rounded-t-lg overflow-hidden"
+        onClick={openModal}
+      >
         <Image
           src={imageUrl}
           alt={title}
@@ -53,6 +66,19 @@ const ProjectCard = ({
           {projectLink !== "disabled" ? "Voir le projet" : "À venir"}
         </a>
       </div>
+      {showModal && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg relative">
+            <button
+              className="absolute -top-12 right-0 border border-white text-white hover:text-gray-900 hover:border-gray-900 custom-gradient p-2"
+              onClick={closeModal}
+            >
+              <FaTimes size={24} />
+            </button>
+            <Image src={imageUrl} alt={title} width={600} height={400} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
