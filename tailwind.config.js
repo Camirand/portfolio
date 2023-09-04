@@ -6,12 +6,13 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    darkMode: "class",
     extend: {
       colors: {
         primary: "#fcfeff",
-        secondary: "#333333",
+        secondary: "#121212",
         thirdary: "#888888",
-        blue: "#3158F9",
+        blue: "#0F66FD",
         lightblue: "#02BFFA",
         hoverblue: "#7bd1f7",
       },
