@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa"; // Import des icônes
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-primary text-white text-center py-8">
+      <footer className="bg-primary text-white py-8 px-4">
         <div className="flex justify-center items-center space-x-4">
           {/* Nom */}
           <Link href="/contact">
