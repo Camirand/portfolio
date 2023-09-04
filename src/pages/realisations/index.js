@@ -68,6 +68,7 @@ const ProjectsSection = () => {
         <FaReact key="react" />,
         <TbBrandNextjs key="nextjs" />,
         <BiLogoTailwindCss key="tailwindcss" />,
+        <FaCss3 key="css3" />,
         <TbBrandVercel key="vercel" />,
         <TbBrandGithub key="github" />,
       ],
