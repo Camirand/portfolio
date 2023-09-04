@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useDarkMode } from "@/context/DarkModeContext";
+
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,12 +14,16 @@ const NavLink = ({ href, text }) => {
   const isActive = router.pathname === href;
   const textRef = useRef(null);
   const [textWidth, setTextWidth] = useState(0);
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
     if (textRef.current) {
       setTextWidth(textRef.current.offsetWidth);
     }
   }, [text]);
+
+  const activeTextColor = darkMode ? "text-white" : "text-secondary";
+  const inactiveTextColor = darkMode ? "text-white" : "text-secondary";
 
   return (
     <Link href={href}>
@@ -33,7 +39,9 @@ const NavLink = ({ href, text }) => {
         <span
           ref={textRef}
           className={`font-bold pb-1 ${
-            isActive ? "text-blue" : "text-secondary hover:text-blue"
+            isActive
+              ? activeTextColor
+              : `${inactiveTextColor} hover:${activeTextColor}`
           }`}
         >
           {text}
@@ -48,6 +56,7 @@ const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [visible, setVisible] = useState(true);
   const router = useRouter();
+  const { darkMode } = useDarkMode();
 
   const closeMenu = () => setIsOpen(false);
 
@@ -73,17 +82,26 @@ const Navbar = () => {
     };
   }, [scrollPosition, router.pathname]);
 
+  const links = [
+    { key: "Accueil", href: "/", text: "Accueil" },
+    { key: "Realisations", href: "/realisations", text: "Réalisations" },
+    { key: "Experiences", href: "/experiences", text: "Expériences" },
+  ];
+
+  const navbarBg = darkMode ? "bg-secondary" : "bg-primary";
+  const textColor = darkMode ? "text-primary" : "text-secondary";
+
   return (
     <motion.nav
       initial={{ translateY: 0 }}
       animate={{ translateY: visible ? 0 : "-100%" }}
       transition={{ ease: "easeInOut", duration: 0.5 }}
-      className="bg-primary px-4 flex flex-wrap justify-between items-center fixed w-full top-0 z-50"
+      className={`${navbarBg} px-4 flex flex-wrap justify-between items-center fixed w-full top-0 z-50`}
     >
       <Link href="/">
         <div className="flex items-center py-2">
           <Image src={logo} alt="Logo" width={36} height={36} priority={true} />
-          <span className="text-secondary font-bold pl-6">
+          <span className={`${textColor} font-bold pl-6`}>
             Marc-André Camirand
           </span>
         </div>
@@ -103,10 +121,10 @@ const Navbar = () => {
               duration: 1,
             }}
           >
-            <FaTimes size={24} />
+            <FaTimes size={24} className="text-blue" />
           </motion.div>
         ) : (
-          <FaBars size={24} />
+          <FaBars size={24} className="text-blue" />
         )}
       </button>
 
@@ -116,20 +134,14 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed top-0 left-0 w-full h-full bg-primary flex flex-col justify-center items-center z-10 lg:hidden"
+            className={`fixed top-0 left-0 w-full min-h-screen ${
+              darkMode ? "bg-secondary" : "bg-primary"
+            } flex flex-col justify-center items-center space-y-10 z-10 lg:hidden pt-20`}
           >
             <div onClick={closeMenu} className="mb-6 space-y-8">
-              <NavLink key="Accueil" href="/" text="Accueil" />
-              <NavLink
-                key="Realisations"
-                href="/realisations"
-                text="Réalisations"
-              />
-              <NavLink
-                key="Experiences"
-                href="/experiences"
-                text="Expériences"
-              />
+              {links.map((link) => (
+                <NavLink key={link.key} href={link.href} text={link.text} />
+              ))}
             </div>
             <Button
               key="Contact"
@@ -139,22 +151,18 @@ const Navbar = () => {
             />
           </motion.div>
         )}
-
-        <div className="hidden lg:flex flex-row items-center space-x-6">
-          <NavLink key="AccueilDesktop" href="/" text="Accueil" />
-          <NavLink
-            key="RealisationsDesktop"
-            href="/realisations"
-            text="Réalisations"
-          />
-          <NavLink
-            key="ExperiencesDesktop"
-            href="/experiences"
-            text="Expériences"
-          />
-          <Button key="ContactDesktop" link="/contact" text="Embauchez-moi" />
-        </div>
       </AnimatePresence>
+
+      <div className="hidden lg:flex flex-row items-center space-x-6">
+        {links.map((link) => (
+          <NavLink
+            key={`${link.key}Desktop`}
+            href={link.href}
+            text={link.text}
+          />
+        ))}
+        <Button key="ContactDesktop" link="/contact" text="Embauchez-moi" />
+      </div>
     </motion.nav>
   );
 };

@@ -1,12 +1,36 @@
+import React, { useState, useEffect } from "react";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Head from "next/head";
 import TransitionEffects from "@/components/TransitionEffects";
 import Cta from "@/components/Cta";
+import { useDarkMode } from "@/context/DarkModeContext";
 
 const ExperiencePage = () => {
+  const { darkMode, setDarkMode } = useDarkMode();
+
+  const toggleDarkMode = () => {
+    const scrollPosition = window.scrollY;
+    const educationElement = document.getElementById("education-section");
+    if (educationElement) {
+      const offsetTop = educationElement.offsetTop;
+      if (scrollPosition >= offsetTop) {
+        setDarkMode(true);
+      } else {
+        setDarkMode(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleDarkMode);
+    return () => {
+      window.removeEventListener("scroll", toggleDarkMode);
+    };
+  }, []);
+
   return (
-    <div>
+    <div className={`${darkMode ? "dark" : ""}`}>
       <Head>
         <title>Expériences de Marc-André Camirand</title>
         <meta
@@ -32,9 +56,13 @@ const ExperiencePage = () => {
 
       <TransitionEffects />
 
-      <main className="bg-primary py-4">
+      <main
+        className={`bg-primary py-4 ${darkMode ? "dark:bg-secondary" : ""}`}
+      >
         <Experience />
-        <Education />
+        <div id="education-section">
+          <Education />
+        </div>
         <Cta />
       </main>
     </div>

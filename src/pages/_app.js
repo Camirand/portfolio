@@ -1,20 +1,45 @@
-import { Inter } from "next/font/google";
+import { DarkModeProvider, useDarkMode } from "@/context/DarkModeContext";
+import "../styles/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import "../styles/globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className={`flex flex-col min-h-screen ${inter.className}`}>
-      <Navbar />
-      <div className="flex-grow">
-        <Component {...pageProps} />
-      </div>
-      <Footer />
-    </div>
+    <DarkModeProvider>
+      <MyAppInner Component={Component} pageProps={pageProps} />
+    </DarkModeProvider>
   );
 }
+const MyAppInner = ({ Component, pageProps }) => {
+  const { darkMode, setDarkMode } = useDarkMode();
+
+  useEffect(() => {
+    const isDarkMode = window.localStorage.getItem("darkMode") === "true";
+    setDarkMode(isDarkMode);
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
+
+  useEffect(() => {
+    setDarkMode(false);
+  }, [Component]);
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <div className="flex-grow">
+        <Component
+          {...pageProps}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+      </div>
+      <Footer darkMode={darkMode} />
+    </div>
+  );
+};
 
 export default MyApp;

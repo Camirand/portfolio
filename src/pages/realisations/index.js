@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDarkMode } from "@/context/DarkModeContext";
 import Head from "next/head";
 import Image from "next/image";
 import TransitionEffects from "@/components/TransitionEffects";
@@ -25,11 +26,38 @@ import {
 } from "react-icons/tb";
 import { SiPostman, SiExpress, SiRubyonrails, SiMysql } from "react-icons/si";
 import ProjectCard from "../../components/ProjectCard";
-import avatar from "../../assets/avatar.png";
+import avatar from "../../assets/workinprogress.png";
 import portfolio from "../../assets/portfolio.png";
 import Cta from "@/components/Cta";
 
 const ProjectsSection = () => {
+  const { darkMode, setDarkMode } = useDarkMode();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      const totalDocScrollLength = docHeight - windowHeight;
+      const scrollPosition = Math.floor(
+        (scrollTop / totalDocScrollLength) * 100
+      );
+
+      if (scrollPosition > 50) {
+        setDarkMode(true);
+      } else {
+        setDarkMode(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const projects = [
     {
       title: "Plant clinic",
@@ -77,8 +105,11 @@ const ProjectsSection = () => {
     },
   ];
 
+  const bgColor = darkMode ? "bg-secondary" : "bg-primary";
+  const titleColor = darkMode ? "text-primary" : "text-secondary";
+
   return (
-    <div>
+    <div className={bgColor}>
       <Head>
         <title>Réalisations de Marc-André Camirand</title>
         <meta
@@ -104,8 +135,10 @@ const ProjectsSection = () => {
 
       <TransitionEffects />
 
-      <main className="bg-primary py-32 flex flex-col items-center justify-center">
-        <h2 className="text-5xl font-bold text-secondary mb-20 text-center">
+      <main
+        className={`py-32 flex flex-col items-center justify-center ${bgColor}`}
+      >
+        <h2 className={`text-5xl font-bold mb-20 text-center ${titleColor}`}>
           Réalisations
         </h2>
         <div className="px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

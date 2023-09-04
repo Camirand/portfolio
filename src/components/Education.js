@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
 import { motion as m, useScroll } from "framer-motion";
 import Liicon from "./Liicon";
+import { useDarkMode } from "@/context/DarkModeContext";
 
-const Details = ({ type, time, place, adress, info }) => {
+const Details = ({ type, time, place, adress, info, darkMode }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -10,10 +11,13 @@ const Details = ({ type, time, place, adress, info }) => {
     layoutEffect: false,
   });
 
+  const titleColor = darkMode ? "text-primary" : "text-secondary";
+  const subtitleColor = darkMode ? "text-primary/75" : "text-secondary/75";
+
   return (
     <li
       ref={ref}
-      className="mb-8 first:mt-0 last:mb-0 w-[90%] mx-auto flex flex-col items-left justify-between"
+      className="mb-16 first:mt-0 last:mb-0 w-[90%] mx-auto flex flex-col items-left justify-between"
     >
       <Liicon reference={ref} progress={scrollYProgress} />
       <m.div
@@ -21,12 +25,12 @@ const Details = ({ type, time, place, adress, info }) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
-        <h3 className="capitalize text-2xl font-bold text-primary">
+        <h3 className={`capitalize text-2xl font-bold ${titleColor}`}>
           {type}
           {"\u00A0"}@ {"\u00A0"}
           <span className="text-blue"> {place}</span>
         </h3>
-        <span className="capitalize font-medium text-primary/75">
+        <span className={`capitalize font-medium ${subtitleColor}`}>
           {time} | {adress}
         </span>
       </m.div>
@@ -35,6 +39,7 @@ const Details = ({ type, time, place, adress, info }) => {
 };
 
 const Education = () => {
+  const { darkMode } = useDarkMode();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -73,24 +78,26 @@ const Education = () => {
       adress: "Ville de Québec",
     },
   ];
+  const titleColor = darkMode ? "text-primary" : "text-secondary";
 
   return (
-    <div className=" bg-gradient-to-b from-secondary to-[#111111] pt-12 pb-32">
-      <h2 className="w-full text-5xl font-bold text-primary py-20 text-center">
+    <div className="pt-12 pb-32">
+      <h2
+        className={`w-full text-5xl font-bold ${titleColor} py-20 text-center`}
+      >
         Éducation
       </h2>
 
       <div className="w-[90%] mx-auto relative">
-        {/* ligne vertitale */}
         <m.div
           id="education-line"
           style={{ scaleY: scrollYProgress, originY: 0 }}
           className="absolute left-0 top-1 w-[4px] h-full custom-gradient"
           ref={ref}
         />
-        <ul className="w-full flex flex-col items-start justify-between ml-4">
+        <ul className="w-full flex flex-col items-start justify-between ml-4 ">
           {educations.map((exp) => (
-            <Details key={exp.type} {...exp} />
+            <Details key={exp.type} {...exp} darkMode={darkMode} />
           ))}
         </ul>
       </div>

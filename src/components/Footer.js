@@ -1,44 +1,46 @@
 import React from "react";
 import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa"; // Import des icônes
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useDarkMode } from "@/context/DarkModeContext";
 
 const Footer = () => {
+  const { darkMode } = useDarkMode();
+
+  const bgColor = darkMode ? "bg-secondary" : "bg-primary";
+  const textColor = darkMode ? "text-primary" : "text-secondary";
+  const commonTextClass = `hover:text-lightblue ${textColor}`;
+
+  const socialLinks = [
+    {
+      icon: FaGithub,
+      url: "https://github.com/Camirand",
+    },
+    {
+      icon: FaLinkedin,
+      url: "https://ca.linkedin.com/in/marcandrecamirand",
+    },
+  ];
+
   return (
     <div>
-      <footer className="bg-primary text-white py-8 px-4">
+      <footer className={`py-6 px-2 ${bgColor} ${textColor}`}>
         <div className="flex justify-center items-center space-x-4">
-          {/* Nom */}
           <Link href="/contact">
-            <span className="text-xm text-secondary font-bold">
+            <span className={`text-xm font-bold ${commonTextClass}`}>
               {new Date().getFullYear()} &copy; Marc-André Camirand
             </span>
           </Link>
-
-          {/* Espace entre le nom et les icônes */}
           <div className="w-8"></div>
 
-          {/* Icônes */}
           <div className="flex space-x-4">
-            <a
-              href="https://github.com/Camirand"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaGithub
-                className="text-secondary hover:text-blue cursor-pointer"
-                size={24}
-              />
-            </a>
-            <a
-              href="https://ca.linkedin.com/in/marcandrecamirand"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedin
-                className="text-secondary hover:text-blue cursor-pointer"
-                size={24}
-              />
-            </a>
+            {socialLinks.map(({ icon: Icon, url }, index) => (
+              <a key={index} href={url} target="_blank" rel="noreferrer">
+                <Icon
+                  className={`${commonTextClass} cursor-pointer`}
+                  size={24}
+                />
+              </a>
+            ))}
           </div>
         </div>
       </footer>

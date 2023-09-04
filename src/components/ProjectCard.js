@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const ProjectCard = ({
   title,
@@ -9,6 +10,7 @@ const ProjectCard = ({
   imageUrl,
   projectLink,
 }) => {
+  const { darkMode } = useDarkMode();
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -18,8 +20,12 @@ const ProjectCard = ({
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const cardBgColor = darkMode ? "bg-secondary" : "bg-primary";
+  const cardTitleColor = darkMode ? "text-primary" : "text-secondary";
+
   return (
-    <div className="bg-primary shadow-md rounded-xl flex flex-col mt-20">
+    <div className={`shadow-md rounded-xl flex flex-col mt-20 ${cardBgColor}`}>
       <div
         className="w-full h-56 relative rounded-t-lg overflow-hidden"
         onClick={openModal}
@@ -28,7 +34,8 @@ const ProjectCard = ({
       </div>
 
       <div className="flex flex-col flex-grow p-4">
-        <h2 className="text-secondary text-2xl font-bold mt-2">{title}</h2>
+        <h2 className={`text-2xl font-bold mt-2 ${cardTitleColor}`}>{title}</h2>
+
         <p className="text-gray-600 mt-2 flex-grow">{description}</p>
         <h3 className="text-secondary font-bold pt-4">
           Technologies utilisées:
