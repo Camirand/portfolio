@@ -107,7 +107,7 @@ const ProjectsSection = () => {
         <h2 className="text-5xl font-bold text-secondary mb-20 text-center">
           Réalisations
         </h2>
-        <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
