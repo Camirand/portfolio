@@ -11,7 +11,15 @@ const ProjectCard = ({
   return (
     <div className="bg-primary shadow-md rounded-xl flex flex-col  mt-20">
       <div className="w-full h-56 relative rounded-t-lg overflow-hidden">
-        <Image src={imageUrl} alt={title} layout="fill" objectFit="contain" />
+        <Image
+          src={imageUrl}
+          alt={title}
+          width={300}
+          height={200}
+          sizes="(max-width: 400px) 100px, (max-width: 900px) 150px, 300px"
+          priority={true}
+          layout="responsive"
+        />
       </div>
 
       <div className="flex flex-col flex-grow p-4">

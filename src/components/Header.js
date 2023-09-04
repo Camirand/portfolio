@@ -57,7 +57,13 @@ const Header = () => {
         </div>
       </div>
       <div className="w-full md:w-2/3 flex flex-col justify-end items-center">
-        <Image src={avatar} alt="Avatar" width={512} height={512} />
+        <Image
+          src={avatar}
+          alt="Avatar"
+          width={512}
+          height={512}
+          priority={true}
+        />
       </div>
     </div>
   );
