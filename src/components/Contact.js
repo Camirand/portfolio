@@ -2,6 +2,17 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
 
+export const InputField = ({ type, name, placeholder, handleChange }) => (
+  <input
+    type={type}
+    name={name}
+    placeholder={placeholder}
+    required
+    onChange={handleChange}
+    className="block w-full p-2 mb-4 text-blue border border-blue-400 rounded-xl"
+  />
+);
+
 const Contact = () => {
   const [formState, setFormState] = useState({
     name: "",
@@ -88,29 +99,27 @@ const Contact = () => {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-xl shadow-md w-full max-w-md text-center"
       >
-        <input
+        <InputField
           type="text"
           name="name"
           placeholder="Votre nom"
-          required
-          onChange={handleChange}
-          className="block w-full p-2 mb-4 text-blue border border-blue-400 rounded-xl"
+          handleChange={handleChange}
         />
-        <input
+        <InputField
           type="email"
           name="email"
           placeholder="info@votreentreprise.ca"
-          required
-          onChange={handleChange}
-          className="block w-full p-2 mb-4 text-blue border border-blue-400 rounded-xl"
+          handleChange={handleChange}
         />
         <textarea
           name="message"
           placeholder="Votre message"
           required
           onChange={handleChange}
-          className="block w-full p-2 mb-4 text-blue border border-blue-400 rounded-xl h-32"
+          rows="4"
+          className="block w-full p-2 mb-4 text-blue border border-blue-400 rounded-xl"
         ></textarea>
+
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           onChange={handleRecaptchaChange}
