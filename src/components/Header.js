@@ -13,6 +13,17 @@ import {
 } from "react-icons/fa";
 
 const Header = () => {
+  const experienceData = [
+    { icon: FaLaptopCode, text: "Développeur FullStack (2022 - ...)" },
+    { icon: FaWordpress, text: "Développeur wordpress (2015 - ...)" },
+    {
+      icon: FaUserTie,
+      text: "Ancien associé et planificateur financier (2013-2023)",
+    },
+    { icon: FaShip, text: "Ancien pirate des caraïbes" },
+    { icon: FaBicycle, text: "Passionné de vélo de montagne." },
+  ];
+
   return (
     <div className="bg-primary px-6 flex flex-col md:flex-row min-h-[90vh]">
       <div className="flex flex-col items-center justify-center w-full md:w-1/2">
@@ -21,27 +32,12 @@ const Header = () => {
           classname="text-4xl text-secondary font-bold"
         />
         <div className="text-gray-500 mt-6 text-left">
-          <div className="flex items-center mt-2">
-            <FaLaptopCode className="text-blue mr-2" />
-            Développeur FullStack (2022 - ...)
-          </div>
-          <div className="flex items-center mt-2">
-            <FaWordpress className="text-blue mr-2" />
-            Développeur wordpress (2015 - ...)
-          </div>
-          <div className="flex items-center mt-2">
-            <FaUserTie className="text-blue mr-2" />
-            Ancien associé et planificateur financier (2013-2023)
-          </div>
-
-          <div className="flex items-center mt-2">
-            <FaShip className="text-blue mr-2" />
-            Ancien pirate des caraïbes
-          </div>
-          <div className="flex items-center mt-2">
-            <FaBicycle className="text-blue mr-2" />
-            Passionné de vélo de montagne.
-          </div>
+          {experienceData.map(({ icon: Icon, text }, index) => (
+            <div className="flex items-center mt-2" key={index}>
+              <Icon className="text-blue mr-2" />
+              {text}
+            </div>
+          ))}
           <div className="py-8 text-center">
             <Button
               link={"/CV.pdf"}
