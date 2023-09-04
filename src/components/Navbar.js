@@ -47,6 +47,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [visible, setVisible] = useState(true);
+  const router = useRouter();
 
   const closeMenu = () => setIsOpen(false);
 
@@ -54,7 +55,9 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollPosition = window.scrollY;
 
-      if (window.innerWidth > 768) {
+      if (router.pathname === "/") {
+        setVisible(true);
+      } else if (window.innerWidth > 768) {
         setVisible(
           currentScrollPosition < 100 || currentScrollPosition <= scrollPosition
         );
@@ -68,7 +71,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scrollPosition]);
+  }, [scrollPosition, router.pathname]);
 
   return (
     <motion.nav
