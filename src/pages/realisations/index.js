@@ -43,7 +43,7 @@ const ProjectsSection = () => {
         <FaStripe key="stripe" />,
       ],
       imageUrl: avatar,
-      projectLink: "lien_vers_projet_Plant_clinic",
+      projectLink: "disabled",
     },
     {
       title: "Baja Life",
@@ -57,13 +57,14 @@ const ProjectsSection = () => {
         <FaStripe key="stripe" />,
       ],
       imageUrl: avatar,
-      projectLink: "lien_vers_projet_baja_life",
+      projectLink: "disabled",
     },
     {
       title: "Portfolio",
       description:
         "Développement de mon portfolio à partir du tout nouveau NextJS 13! Merci à Midjourney pour cette magnifique image en header.",
       technologies: [
+        <FaReact key="react" />,
         <TbBrandNextjs key="nextjs" />,
         <BiLogoTailwindCss key="tailwindcss" />,
         <TbBrandVercel key="vercel" />,

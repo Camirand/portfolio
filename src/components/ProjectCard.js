@@ -36,9 +36,15 @@ const ProjectCard = ({
           href={projectLink}
           target="_blank"
           rel="noreferrer"
-          className="inline-block bg-gradient-to-r from-blue to-lightblue text-white font-bold px-4 py-2 rounded-full hover:to-hoverblue transition-all mt-4"
+          className={`inline-block bg-gradient-to-r from-blue to-lightblue text-white font-bold px-4 py-2 rounded-full hover:to-hoverblue transition-all mt-4 
+                      ${
+                        projectLink === "disabled"
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
+                      }`}
+          style={projectLink === "disabled" ? { pointerEvents: "none" } : {}}
         >
-          Voir le projet
+          {projectLink !== "disabled" ? "Voir le projet" : "À venir"}
         </a>
       </div>
     </div>
