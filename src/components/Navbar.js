@@ -116,19 +116,40 @@ const Navbar = () => {
             className="fixed top-0 left-0 w-full h-full bg-primary flex flex-col justify-center items-center z-10 lg:hidden"
           >
             <div onClick={closeMenu} className="mb-6 space-y-8">
-              <NavLink href="/" text="Accueil" />
-              <NavLink href="/realisations" text="Réalisations" />
-              <NavLink href="/experiences" text="Expériences" />
+              <NavLink key="Accueil" href="/" text="Accueil" />
+              <NavLink
+                key="Realisations"
+                href="/realisations"
+                text="Réalisations"
+              />
+              <NavLink
+                key="Experiences"
+                href="/experiences"
+                text="Expériences"
+              />
             </div>
-            <Button link="/contact" text="Embauchez-moi" onClick={closeMenu} />
+            <Button
+              key="Contact"
+              link="/contact"
+              text="Embauchez-moi"
+              onClick={closeMenu}
+            />
           </motion.div>
         )}
 
         <div className="hidden lg:flex flex-row items-center space-x-6">
-          <NavLink href="/" text="Accueil" />
-          <NavLink href="/realisations" text="Réalisations" />
-          <NavLink href="/experiences" text="Expériences" />
-          <Button link="/contact" text="Embauchez-moi" />
+          <NavLink key="AccueilDesktop" href="/" text="Accueil" />
+          <NavLink
+            key="RealisationsDesktop"
+            href="/realisations"
+            text="Réalisations"
+          />
+          <NavLink
+            key="ExperiencesDesktop"
+            href="/experiences"
+            text="Expériences"
+          />
+          <Button key="ContactDesktop" link="/contact" text="Embauchez-moi" />
         </div>
       </AnimatePresence>
     </motion.nav>
