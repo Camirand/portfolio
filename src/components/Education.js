@@ -82,18 +82,17 @@ const Education = () => {
 
   return (
     <div className=" bg-primary my-32">
-      <h2
-        ref={ref}
-        className="w-full text-5xl font-bold text-secondary mb-20 text-center"
-      >
+      <h2 className="w-full text-5xl font-bold text-secondary mb-20 text-center">
         Éducation
       </h2>
 
       <div className="w-[90%] mx-auto relative">
         {/* ligne vertitale */}
         <m.div
+          id="education-line"
           style={{ scaleY: scrollYProgress, originY: 0 }}
           className="absolute left-0 top-1 w-[4px] h-full bg-blue"
+          ref={ref}
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4">
           {educations.map((exp) => (

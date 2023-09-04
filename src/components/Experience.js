@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion as m, useScroll } from "framer-motion";
 import Liicon from "./Liicon";
 import { SiAsda } from "react-icons/si";
@@ -50,7 +50,6 @@ const Experience = () => {
     offset: ["start end", "center start"],
     layoutEffect: false,
   });
-  const reverseScrollYProgress = 1 - scrollYProgress;
 
   const experiences = [
     {
@@ -253,18 +252,18 @@ const Experience = () => {
 
   return (
     <div className=" bg-primary my-32">
-      <h2
-        ref={ref}
-        className="w-full text-5xl font-bold text-secondary mb-20 text-center"
-      >
+      <h2 className="w-full text-5xl font-bold text-secondary mb-20 text-center">
         Expériences
       </h2>
 
       <div className="w-[90%] mx-auto relative">
+        {" "}
         {/* ligne vertitale */}
         <m.div
-          style={{ scaleY: reverseScrollYProgress, originY: 0 }}
+          id="experience-line"
+          style={{ scaleY: scrollYProgress, originY: 0 }}
           className="absolute left-0 top-1 w-[4px] h-full bg-blue"
+          ref={ref}
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4 ">
           {experiences.map((exp) => (
