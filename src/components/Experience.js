@@ -4,7 +4,7 @@ import Liicon from "./Liicon";
 import { SiAsda } from "react-icons/si";
 import { FaArrowRight } from "react-icons/fa";
 
-const Details = ({ position, company, companyLink, time, adress, work }) => {
+const Details = ({ position, company, time, adress, work }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -24,15 +24,8 @@ const Details = ({ position, company, companyLink, time, adress, work }) => {
       >
         <h3 className="capitalize text-2xl font-bold text-secondary">
           {position}
-          {"\u00A0"}
-          <a
-            href={companyLink}
-            target="_blank"
-            className="text-blue capitalize"
-          >
-            @ {"\u00A0"}
-            {company}
-          </a>
+          {"\u00A0"}@ {"\u00A0"}
+          <span className="text-blue"> {company}</span>
         </h3>
         <span className="capitalize font-medium text-secondary/75">
           <span className=" text-secondary font-bold">{time}</span> | {adress}
@@ -55,7 +48,6 @@ const Experience = () => {
     {
       position: "Développeur web",
       company: "Votre entreprise",
-      companyLink: "/experiences",
       time: "2023 - Futur",
       adress: "Province de Québec",
       work: (
@@ -111,7 +103,6 @@ const Experience = () => {
     {
       position: "Développeur web",
       company: "Travailleur autonome",
-      companyLink: "www.mieuxplanifier.com",
       time: "2022-Présent",
       adress: "Province de Québec",
 
@@ -156,7 +147,6 @@ const Experience = () => {
     {
       position: "Développeur web",
       company: "MIEUX PLANIFIER INC",
-      companyLink: "www.mieuxplanifier.com",
       time: "2015-Présent",
       adress: "Ville de Québec",
       work: (
@@ -206,7 +196,6 @@ const Experience = () => {
     {
       position: "Associé et planificateur financier",
       company: "MIEUX PLANIFIER INC",
-      companyLink: "www.mieuxplanifier.com",
       time: "2013-2023",
       adress: "Ville de Québec",
       work: (
