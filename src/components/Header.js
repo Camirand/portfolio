@@ -14,7 +14,7 @@ import {
 
 const Header = () => {
   return (
-    <div className="bg-primary px-6 flex flex-col md:flex-row min-h-[75vh]">
+    <div className="bg-primary px-6 flex flex-col md:flex-row min-h-[90vh]">
       <div className="flex flex-col items-center justify-center w-full md:w-1/2">
         <AnimatedText
           text={"<Développeur web>"}
