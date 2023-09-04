@@ -6,7 +6,7 @@ export const Button = ({ text, link, target, onClick }) => {
     <div onClick={onClick}>
       <Link href={link} passHref>
         <button
-          className="bg-gradient-to-r from-blue to-lightblue text-white font-bold px-4 py-2 rounded-full hover:to-hoverblue transition-all"
+          className="custom-gradient text-white font-bold px-4 py-2 rounded-full"
           target={target}
         >
           {text}
