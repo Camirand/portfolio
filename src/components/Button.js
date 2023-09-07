@@ -15,7 +15,25 @@ export const Button = ({ text, link, target, onClick }) => {
 export const ButtonLight = ({ text, link, target, onClick }) => {
   return (
     <div onClick={onClick} className="relative hover-fill-effect">
-      <div className="button-background"></div>
+      <div className="button-lightbackground"></div>
+      <a
+        href={link}
+        target={target}
+        rel="noopener noreferrer"
+        className="inline-block"
+      >
+        <button className="button-text" target={target}>
+          {text}
+        </button>
+      </a>
+    </div>
+  );
+};
+
+export const ButtonDark = ({ text, link, target, onClick }) => {
+  return (
+    <div onClick={onClick} className="relative hover-fill-effect-dark">
+      <div className="button-darkbackground"></div>
       <a
         href={link}
         target={target}
