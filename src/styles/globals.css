@@ -60,14 +60,14 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #121212;
   transition: left 0.4s ease;
   z-index: 1;
 }
 
 .button-text {
   position: relative;
-  color: #ffffff;
+  color: #121212;
   font-weight: 600;
   padding: 8px 16px;
   border-radius: 9999px;
@@ -75,13 +75,28 @@ body {
   transition: color 0.4s ease-in-out;
 }
 
-.button-background {
+.button-darkbackground .button-text {
+  color: #fcfeff;
+}
+
+.button-darkbackground {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #222222;
+  background-color: #121212;
+  z-index: 0;
+  border-radius: 9999px;
+}
+
+.button-lightbackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fcfeff;
   z-index: 0;
   border-radius: 9999px;
 }
@@ -91,5 +106,41 @@ body {
 }
 
 .hover-fill-effect:hover .button-text {
-  color: #222222;
+  color: #fcfeff;
+}
+
+.hover-fill-effect-dark {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.hover-fill-effect-dark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fcfeff;
+  transition: left 0.4s ease;
+  z-index: 1;
+}
+
+.hover-fill-effect-dark .button-text {
+  position: relative;
+  color: #fcfeff;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  z-index: 2;
+  transition: color 0.4s ease-in-out;
+}
+
+.hover-fill-effect-dark:hover::before {
+  left: 0;
+}
+
+.hover-fill-effect-dark:hover .button-text {
+  color: #121212; /* Texte noir lors du survol en mode sombre */
 }
