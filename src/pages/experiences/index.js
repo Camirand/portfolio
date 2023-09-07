@@ -5,6 +5,8 @@ import Head from "next/head";
 import TransitionEffects from "@/components/TransitionEffects";
 import Cta from "@/components/Cta";
 import { useDarkMode } from "@/context/DarkModeContext";
+import { motion } from "framer-motion";
+import { SpotLights } from "@/components/SpotLights";
 
 const ExperiencePage = () => {
   const { darkMode, setDarkMode } = useDarkMode();
@@ -59,6 +61,7 @@ const ExperiencePage = () => {
       <main
         className={`bg-primary py-4 ${darkMode ? "dark:bg-secondary" : ""}`}
       >
+        <SpotLights />
         <Experience />
         <div id="education-section">
           <Education />

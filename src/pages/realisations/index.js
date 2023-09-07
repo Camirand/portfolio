@@ -29,6 +29,7 @@ import ProjectCard from "../../components/ProjectCard";
 import avatar from "../../assets/workinprogress.png";
 import portfolio from "../../assets/portfolio.png";
 import Cta from "@/components/Cta";
+import { SpotLights } from "@/components/SpotLights";
 
 const ProjectsSection = () => {
   const { darkMode, setDarkMode } = useDarkMode();
@@ -44,7 +45,7 @@ const ProjectsSection = () => {
         (scrollTop / totalDocScrollLength) * 100
       );
 
-      if (scrollPosition > 50) {
+      if (scrollPosition > 80) {
         setDarkMode(true);
       } else {
         setDarkMode(false);
@@ -138,6 +139,7 @@ const ProjectsSection = () => {
       <main
         className={`py-32 flex flex-col items-center justify-center ${bgColor}`}
       >
+        <SpotLights />
         <h2 className={`text-5xl font-bold mb-20 text-center ${titleColor}`}>
           Réalisations
         </h2>

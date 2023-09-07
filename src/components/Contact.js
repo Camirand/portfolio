@@ -75,7 +75,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-primary flex flex-col items-center justify-center my-32">
+    <div className="flex flex-col items-center justify-center my-32 relative">
       <h1 className="text-5xl mb-6 text-secondary font-bold">Contactez-moi</h1>
       <div className="flex space-x-4 mb-6">
         <a href="https://github.com/Camirand" target="_blank" rel="noreferrer">

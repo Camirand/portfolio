@@ -3,6 +3,8 @@ import Head from "next/head";
 import TransitionEffects from "@/components/TransitionEffects";
 import Cta from "@/components/Cta";
 
+import { SpotLights } from "@/components/SpotLights";
+
 const ContactPage = () => {
   return (
     <div>
@@ -29,7 +31,8 @@ const ContactPage = () => {
       </Head>
       <TransitionEffects />
 
-      <main className="bg-primary py-4">
+      <main className="bg-white py-4">
+        <SpotLights />
         <Contact />
       </main>
     </div>
