@@ -28,6 +28,8 @@ import { SiPostman, SiExpress, SiRubyonrails, SiMysql } from "react-icons/si";
 import ProjectCard from "../../components/ProjectCard";
 import avatar from "../../assets/workinprogress.png";
 import portfolio from "../../assets/portfolio.png";
+import aiassistant from "../../assets/aissistant.png";
+
 import Cta from "@/components/Cta";
 import { SpotLights } from "@/components/SpotLights";
 
@@ -60,6 +62,20 @@ const ProjectsSection = () => {
   }, []);
 
   const projects = [
+    {
+      title: "AI Assistant",
+      description:
+        "Développement d'une application fullstack SAAS qui permet à l'utilisateur de générer des photos, des conversations ou du code grâce à l'intelligence artificielle. L'utilisateur bénéficie de 5 crédits avant de passer au compte premium pour pouvoir poursuivre de façon illimitée.",
+      technologies: [
+        <FaReact key="aissistant-react" />,
+        <TbBrandNextjs key="aissistant-nextjs" />,
+        <BiLogoTailwindCss key="aissistant-tailwindcss" />,
+        <FaStripe key="aissistant-stripe" />,
+        <TbBrandVercel key="aissistant-vercel" />,
+      ],
+      imageUrl: aiassistant,
+      projectLink: "disabled",
+    },
     {
       title: "Plant clinic",
       description:
