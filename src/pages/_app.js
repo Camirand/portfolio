@@ -17,6 +17,7 @@ const MyAppInner = ({ Component, pageProps }) => {
   useEffect(() => {
     const isDarkMode = window.localStorage.getItem("darkMode") === "true";
     setDarkMode(isDarkMode);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -25,7 +26,8 @@ const MyAppInner = ({ Component, pageProps }) => {
 
   useEffect(() => {
     setDarkMode(false);
-  }, [Component]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Head from "next/head";
@@ -11,7 +11,7 @@ import { SpotLights } from "@/components/SpotLights";
 const ExperiencePage = () => {
   const { darkMode, setDarkMode } = useDarkMode();
 
-  const toggleDarkMode = () => {
+  const toggleDarkMode = useCallback(() => {
     const scrollPosition = window.scrollY;
     const educationElement = document.getElementById("education-section");
     if (educationElement) {
@@ -22,17 +22,17 @@ const ExperiencePage = () => {
         setDarkMode(false);
       }
     }
-  };
+  }, [setDarkMode]);
 
   useEffect(() => {
     window.addEventListener("scroll", toggleDarkMode);
     return () => {
       window.removeEventListener("scroll", toggleDarkMode);
     };
-  }, []);
+  }, [toggleDarkMode]);
 
   return (
-    <div className={`${darkMode ? "dark" : ""}`}>
+    <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>Expériences de Marc-André Camirand</title>
         <meta

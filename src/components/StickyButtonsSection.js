@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useDarkMode } from "@/context/DarkModeContext";
 
 const StickyButtonsSection = () => {
@@ -46,7 +46,7 @@ const StickyButtonsSection = () => {
     }
   };
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (sectionRef.current) {
       setIsSticky(window.scrollY >= sectionRef.current.offsetTop);
 
@@ -68,12 +68,12 @@ const StickyButtonsSection = () => {
         }
       }
     }
-  };
+  }, [setDarkMode]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const renderButton = (card) => (
     <button

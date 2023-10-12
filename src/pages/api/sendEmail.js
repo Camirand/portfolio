@@ -3,7 +3,7 @@ import { SiGmail } from "react-icons/si";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 console.log(process.env.SENDGRID_API_KEY);
-export default async (req, res) => {
+const sendEmail = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).end();
   }
@@ -33,3 +33,5 @@ export default async (req, res) => {
     res.status(400).send("Erreur lors de l'envoi du message");
   }
 };
+
+export default sendEmail;

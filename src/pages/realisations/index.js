@@ -59,7 +59,7 @@ const ProjectsSection = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [setDarkMode]);
 
   const projects = [
     {
