@@ -34,7 +34,7 @@ const Header = () => {
         <div className="text-gray-500 mt-6 text-left">
           {experienceData.map(({ icon: Icon, text }, index) => (
             <div className="flex items-center mt-2" key={index}>
-              <Icon className="text-blue mr-2" />
+              <Icon className="text-blue mr-2" aria-label="icon description" />
               {text}
             </div>
           ))}
@@ -56,8 +56,8 @@ const Header = () => {
         <Image
           src={avatar}
           alt="Avatar"
-          width={512}
-          height={512}
+          width={256}
+          height={256}
           priority={true}
         />
       </div>

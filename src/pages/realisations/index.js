@@ -67,12 +67,15 @@ const ProjectsSection = () => {
       description:
         "Développement d'une application fullstack SAAS qui permet à l'utilisateur de générer des photos, des conversations ou du code grâce à l'intelligence artificielle. L'utilisateur bénéficie de 5 crédits avant de passer au compte premium pour pouvoir poursuivre de façon illimitée.",
       technologies: [
-        <FaReact key="aissistant-react" />,
-        <TbBrandNextjs key="aissistant-nextjs" />,
-        <BiLogoTailwindCss key="aissistant-tailwindcss" />,
-        <FaStripe key="aissistant-stripe" />,
-        <TbBrandVercel key="aissistant-vercel" />,
-        <TbBrandPrisma key="aissistant-prisma" />,
+        <FaReact key="aissistant-react" aria-label="React" />,
+        <TbBrandNextjs key="aissistant-nextjs " aria-label="NextJS" />,
+        <BiLogoTailwindCss
+          key="aissistant-tailwindcss"
+          aria-label="TailwindCSS"
+        />,
+        <FaStripe key="aissistant-stripe" aria-label="Stripe" />,
+        <TbBrandVercel key="aissistant-vercel" aria-label="Vercel" />,
+        <TbBrandPrisma key="aissistant-prisma" aria-label="Prisma" />,
       ],
       imageUrl: aiassistant,
       projectLink: "https://aissistantgpt.vercel.app/",
@@ -82,12 +85,15 @@ const ProjectsSection = () => {
       description:
         "Développement d'une application fullstack qui permet à l'utilisateur d'identifier une plante ou la maladie d'une plante à partir d'une photo. Selon l'abonnement de l'utilisateur, il peut également obtenir des conseils pour traiter la maladie.",
       technologies: [
-        <FaReact key="plant-clinic-react" />,
-        <BiLogoTailwindCss key="plant-clinic-tailwindcss" />,
-        <FaNodeJs key="plant-clinic-nodejs" />,
-        <SiExpress key="plant-clinic-express" />,
-        <BiLogoMongodb key="plant-clinic-mongodb" />,
-        <FaStripe key="plant-clinic-stripe" />,
+        <FaReact key="plant-clinic-react" aria-label="React" />,
+        <BiLogoTailwindCss
+          key="plant-clinic-tailwindcss"
+          aria-label="TailwindCSS"
+        />,
+        <FaNodeJs key="plant-clinic-nodejs" aria-label="NodeJS" />,
+        <SiExpress key="plant-clinic-express" aria-label="Express" />,
+        <BiLogoMongodb key="plant-clinic-mongodb" aria-label="MongoDB" />,
+        <FaStripe key="plant-clinic-stripe" aria-label="Stripe" />,
       ],
       imageUrl: avatar,
       projectLink: "disabled",
@@ -97,11 +103,14 @@ const ProjectsSection = () => {
       description:
         "Redesign complet d'un site web wix. Baja Life offre des expériences de voyages personnalisés. La cliente désirait améliorer son UX/UI, intégrer un blog, intégrer un dashboard afin d'afficher ses tours et ses disponibilités ainsi qu'un système de paiement.",
       technologies: [
-        <FaReact key="baja-life-react" />,
-        <TbBrandNextjs key="baja-life-nextjs" />,
-        <BiLogoTailwindCss key="baja-life-tailwindcss" />,
-        <FaWordpress key="baja-life-wordpress" />,
-        <FaStripe key="baja-life-stripe" />,
+        <FaReact key="baja-life-react" aria-label="React" />,
+        <TbBrandNextjs key="baja-life-nextjs" aria-label="NextJS" />,
+        <BiLogoTailwindCss
+          key="baja-life-tailwindcss"
+          aria-label="TailwindCSS"
+        />,
+        <FaWordpress key="baja-life-wordpress" aria-label="Wordpress" />,
+        <FaStripe key="baja-life-stripe" aria-label="Stripe" />,
       ],
       imageUrl: avatar,
       projectLink: "disabled",
@@ -111,12 +120,15 @@ const ProjectsSection = () => {
       description:
         "Développement de mon portfolio à partir du tout nouveau NextJS 13! Merci à Midjourney pour cette magnifique image en Hero.",
       technologies: [
-        <FaReact key="portfolio-react" />,
-        <TbBrandNextjs key="portfolio-nextjs" />,
-        <BiLogoTailwindCss key="portfolio-tailwindcss" />,
-        <FaCss3 key="portfolio-css3" />,
-        <TbBrandVercel key="portfolio-vercel" />,
-        <TbBrandGithub key="portfolio-github" />,
+        <FaReact key="portfolio-react" aria-label="React" />,
+        <TbBrandNextjs key="portfolio-nextjs" aria-label="NextJS" />,
+        <BiLogoTailwindCss
+          key="portfolio-tailwindcss"
+          aria-label="TailwindCSS"
+        />,
+        <FaCss3 key="portfolio-css3" aria-label="CSS3" />,
+        <TbBrandVercel key="portfolio-vercel" aria-label="Vercel" />,
+        <TbBrandGithub key="portfolio-github" aria-label="Github" />,
       ],
       imageUrl: portfolio,
       projectLink: "https://www.marcandrecamirand.com/",
