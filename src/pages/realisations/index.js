@@ -22,9 +22,9 @@ import {
   TbBrandGithub,
   TbBrandNextjs,
   TbBrandVercel,
-  TbBrandVite,
+  TbBrandPrisma,
 } from "react-icons/tb";
-import { SiPostman, SiExpress, SiRubyonrails, SiMysql } from "react-icons/si";
+import { SiExpress } from "react-icons/si";
 import ProjectCard from "../../components/ProjectCard";
 import avatar from "../../assets/workinprogress.png";
 import portfolio from "../../assets/portfolio.png";
@@ -72,9 +72,10 @@ const ProjectsSection = () => {
         <BiLogoTailwindCss key="aissistant-tailwindcss" />,
         <FaStripe key="aissistant-stripe" />,
         <TbBrandVercel key="aissistant-vercel" />,
+        <TbBrandPrisma key="aissistant-prisma" />,
       ],
       imageUrl: aiassistant,
-      projectLink: "disabled",
+      projectLink: "https://aissistantgpt.vercel.app/",
     },
     {
       title: "Plant clinic",
