@@ -56,8 +56,8 @@ const Header = () => {
         <Image
           src={avatar}
           alt="Avatar"
-          width={256}
-          height={256}
+          width={512}
+          height={512}
           priority={true}
         />
       </div>

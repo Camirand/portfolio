@@ -19,28 +19,42 @@ import { SiPostman, SiExpress, SiRubyonrails } from "react-icons/si";
 const technologies = [
   {
     icon: FaHtml5,
+    name: "HTML5",
     link: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5",
   },
-  { icon: FaCss3, link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-  { icon: BiLogoTailwindCss, link: "https://tailwindcss.com/" },
+  {
+    icon: FaCss3,
+    name: "CSS3",
+    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+  },
+  {
+    icon: BiLogoTailwindCss,
+    name: "TailwindCSS",
+    link: "https://tailwindcss.com/",
+  },
   {
     icon: FaJs,
+    name: "JavaScript",
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
-  { icon: FaReact, link: "https://reactjs.org/" },
-  { icon: TbBrandNextjs, link: "https://nextjs.org/" },
-  { icon: TbBrandVite, link: "https://vitejs.dev/" },
-  { icon: FaNodeJs, link: "https://nodejs.org/" },
-  { icon: SiExpress, link: "https://expressjs.com/" },
-  { icon: FaGem, link: "https://www.ruby-lang.org/en/" },
-  { icon: SiRubyonrails, link: "https://rubyonrails.org/" },
-  { icon: BiLogoMongodb, link: "https://www.mongodb.com/" },
-  { icon: FaWordpress, link: "https://wordpress.org/" },
-  { icon: TbBrandVercel, link: "https://vercel.com/" },
-  { icon: FaGithub, link: "https://github.com/" },
-  { icon: FaNpm, link: "https://www.npmjs.com/" },
-  { icon: SiPostman, link: "https://www.postman.com/" },
-  { icon: FaSlack, link: "https://slack.com/" },
+  { icon: FaReact, name: "React", link: "https://reactjs.org/" },
+  { icon: TbBrandNextjs, name: "NextJS", link: "https://nextjs.org/" },
+  { icon: TbBrandVite, name: "Vite", link: "https://vitejs.dev/" },
+  { icon: FaNodeJs, name: "NodeJS", link: "https://nodejs.org/" },
+  { icon: SiExpress, name: "ExpressJS", link: "https://expressjs.com/" },
+  { icon: FaGem, name: "Ruby", link: "https://www.ruby-lang.org/en/" },
+  {
+    icon: SiRubyonrails,
+    name: "Ruby on Rails",
+    link: "https://rubyonrails.org/",
+  },
+  { icon: BiLogoMongodb, name: "MongoDB", link: "https://www.mongodb.com/" },
+  { icon: FaWordpress, name: "WordPress", link: "https://wordpress.org/" },
+  { icon: TbBrandVercel, name: "Vercel", link: "https://vercel.com/" },
+  { icon: FaGithub, name: "GitHub", link: "https://github.com/" },
+  { icon: FaNpm, name: "NPM", link: "https://www.npmjs.com/" },
+  { icon: SiPostman, name: "Postman", link: "https://www.postman.com/" },
+  { icon: FaSlack, name: "Slack", link: "https://slack.com/" },
 ];
 
 const TechnologiesSection = () => {
@@ -52,6 +66,7 @@ const TechnologiesSection = () => {
           href={tech.link}
           target="_blank"
           rel="noreferrer"
+          aria-label={tech.name}
           className={`p-2 transition-all transform duration-500 ease-in-out delay-${
             index * 100
           } hover:text-hoverblue`}
