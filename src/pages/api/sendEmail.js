@@ -18,7 +18,7 @@ const sendEmail = async (req, res) => {
 
   const content = {
     to: "camirand.mac@gmail.com",
-    from: "camirand.mac@Gmail.com",
+    from: "noreply@em5835.marcandrecamirand.com",
     subject: `Offre d'emploi de ${name}`,
     text: message,
     html: `<p>${message}</p>`,
